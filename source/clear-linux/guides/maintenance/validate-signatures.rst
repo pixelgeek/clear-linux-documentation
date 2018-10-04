@@ -9,8 +9,10 @@ creates a chain of trust. A broken chain of trust, seen as an invalid
 signature, means the content is not valid.
 
 This guide covers how to validate the contents of an image, which is a manual
-process, and describes the automatic process ``swupd`` performs internally to
+process and is the same process ``swupd`` performs internally to
 validate an update.
+
+.. _image-content-validation:
 
 Image content validation
 ========================
@@ -47,13 +49,7 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
    .. code-block:: console
 
-      sha512sum ./clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
-
-   .. important::
-
-      The ``./`` in the file name must be included because it is part of the
-      SHA512 sum of the image. Without it, the validation of the signature
-      of the image will fail.
+      sha512sum clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
 
 #. Ensure the signature of the SHA512 sum of the image was created using the
    Clear Linux certificate. This validates the image is trusted and it has not
@@ -82,7 +78,7 @@ these steps manually when performing a ``swupd update``.
       # MoM
       curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM
       # Signature of MoM
-      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.sig
+      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM.sig
       # Swupd certificate
       curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/Swupd_Root.pem
 

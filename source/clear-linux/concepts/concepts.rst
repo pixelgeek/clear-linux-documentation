@@ -8,7 +8,12 @@ features of |CLOSIA|. These concepts attempt to provide all the technical
 details relevant to the |CL| features.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    swupd-about
+   mixer-about
    bundles-about
+   autospec-about
+   restart
+   security
+   telemetry-about

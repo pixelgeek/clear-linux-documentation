@@ -3,7 +3,7 @@
 Bulk provision
 ##############
 
-The |CLOSIA| can be automatically provisioned in bulk using a combination of
+The |CL-ATTR| can be automatically provisioned in bulk using a combination of
 the |CL| installer, **Ister**, and :abbr:`ICIS (Ister Cloud Init Service)`.
 This guide covers how to perform a bulk provision of |CL| using **Ister**
 and **ICIS**.
@@ -27,7 +27,7 @@ Prerequisites
 
 Before performing a bulk provision, verify you have a PXE server capable
 of performing network boots of |CL|. Please refer to our
-:ref:`guide on how to perform an iPXE boot<network-boot>` using
+:ref:`guide on how to perform an iPXE boot<ipxe-install>` using
 :abbr:`NAT (network address translation)` for details.
 
 Because a bulk provision relies on a reboot, ensure the following
@@ -49,7 +49,7 @@ Configuration
    with the steps it needs to perform an installation. The file outlines
    what partitions, file systems, and mount points **Ister** should set
    up. Lastly, the file outlines which bundles to install. See our
-   :ref:`available-bundles` document for the list of available bundles. The
+   :ref:`bundles` document for the list of available bundles. The
    following example shows the contents of an Ister installation file:
 
    .. code-block:: json
@@ -92,7 +92,7 @@ Configuration
    within the web hosting directory of **ICIS**. The following example shows
    an Ister configuration file:
 
-   .. code-block:: json
+   .. code-block:: none
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
@@ -102,7 +102,7 @@ Configuration
    kernel parameter value.  The following example shows an iPXE boot script
    with the ``isterconf`` parameter:
 
-   .. code-block:: json
+   .. code-block:: none
 
       #!ipxe
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1:60000/icis/static/ister/ister.conf
@@ -129,7 +129,7 @@ Configuration
    in the ``static`` directory within the web hosting directory of **ICIS**.
    The following example shows one such assignment:
 
-   .. code-block:: json
+   .. code-block:: none
 
       # MAC address,role
       00:01:02:03:04:05,ciao
@@ -138,7 +138,7 @@ Configuration
    :file:`config.txt` file, a default role for those MAC address may be
    defined as follows:
 
-   .. code-block:: json
+   .. code-block:: none
 
       # MAC address,role
       default,ciao

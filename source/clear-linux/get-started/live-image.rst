@@ -1,43 +1,37 @@
 .. _live-image:
 
-Install Clear Linux as a live image
-###################################
+Install |CL-ATTR| as a live image
+#################################
 
-This option is a great way to try a live |CL| environment without writing
-to your computer's hard disk.
+A live image contains the complete |CL-ATTR| operating system and resides
+on a bootable media such as a USB drive or in a virtual machine
+(see :ref:`virtual-machine-install`). This is a great way to use |CL| 
+without modifying your computer's hard disk.
 
-Use the live image to boot the OS in a VM, or you can create a bootable
-USB drive and boot from USB.
+To create a bootable USB drive with a live image, follow
+:ref:`our step-by-step instructions<bootable-usb>` and use the latest |CL|
+live image from the `image`_ directory. Look for the
+:file:`clear-[version number]-live.img.xz` file.
 
-Be aware, however, that if you do **not** manually configure the install and
-instead use the auto-install, it will repartition ``/dev/sda``.
-This image also enables telemetry by default; see the `telemetry`_ feature
-page for more details.
+.. _boot-live-image:
 
-Download the latest Clear Linux Live Image
-------------------------------------------
+Boot the |CL| live image
+************************
 
-Download the ``clear-[version_number]-live.img.xz``
-image in the `current`_ version's download directory.
+#. Configure the BIOS/UEFI firmware settings of the target system:
 
-For older versions, see our `releases`_ page.
+   * Enable `Intel® Virtualization Technology (Intel® VT)`_.
+   * Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_.
+   * Disable `Secure Boot`.
 
-.. include:: bare-metal-install/bare-metal-install.rst
-   :Start-after: create-usb:
-   :end-before: download-clear-linux-image
+#. Plug the imaged USB drive in and boot it up.
+#. Log in as `root` and set a password.
+   
+.. _create and enable user space: https://clearlinux.org/documentation/clear-linux/guides/maintenance/enable-user-space 
 
-This example uses release 10980 so we will download the
-:file:`clear-10980-installer.img.xz` image file.
+.. _`image`: https://download.clearlinux.org/image
 
-.. include:: bare-metal-install/bare-metal-install.rst
-   :Start-after: copy-image:
-   :end-before: install-on-target
+.. _`Intel® Virtualization Technology (Intel® VT)`: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 
-**Congratulations!**
+.. _`Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 
-You are now ready to boot from USB and kick the tires on your live |CL|
-environment.
-
-.. _telemetry: https://clearlinux.org/features/telemetry
-.. _releases: https://download.clearlinux.org/releases
-.. _current: http://download.clearlinux.org/current

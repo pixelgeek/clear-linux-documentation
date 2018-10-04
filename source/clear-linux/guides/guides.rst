@@ -3,6 +3,13 @@
 Guides
 ######
 
+Our Guides: 
+
+*  Provide a critical, fundamental understanding of |CL| features
+*  Show you how to leverage the full feature set of |CL|
+*  Enhance your productivity when using |CL| 
+
+
 The following guides provide step-by-step instructions for tasks that come
 after completing the |CL| :ref:`installation <get-started>`.
 
@@ -11,3 +18,4 @@ after completing the |CL| :ref:`installation <get-started>`.
 
    maintenance/maintenance
    network/network
+   deploy-at-scale
